@@ -1,6 +1,6 @@
 Name:              telepathy-glib
 Version:           0.24.1
-Release:           10
+Release:           11
 Summary:           GObject-based library for the Telepathy D-Bus API
 
 License:           LGPLv2+
@@ -24,14 +24,14 @@ Summary:           Header files for telepathy-glib
 Requires:          %{name} = %{version}-%{release}
 Requires:          dbus-devel dbus-glib-devel glib2-devel telepathy-glib
 Requires:          pkgconf-pkg-config telepathy-filesystem
-                   
+
 %description       devel
 Header files for telepathy-glib
 
 %package_help
 
 %prep
-%autosetup -n %{name}-%{version} -p1 
+%autosetup -n %{name}-%{version} -p1
 
 %build
 %configure --enable-introspection=yes --enable-vala-bindings=yes
@@ -48,7 +48,8 @@ make check
 
 %files
 %defattr(-,root,root)
-%doc README COPYING AUTHORS
+%doc README AUTHORS
+%license COPYING
 %{_libdir}/girepository-1.0/*
 %{_libdir}/*.so.*
 %{_datadir}/vala/vapi/telepathy-glib.*
@@ -67,5 +68,11 @@ make check
 %{_datadir}/gtk-doc/html/*
 
 %changelog
+* Mon Oct 21 2019 openEuler Buildteam <buildteam@openeuler.org> - 0.24.1-11
+- Type:enhancement
+- Id:NA
+- SUG:NA
+- DESC:modify the location of COPYING
+
 * Sat Aug 31 2019 openEuler Buildteam <buildteam@openeuler.org> - 0.24.1-10
 - Package init
