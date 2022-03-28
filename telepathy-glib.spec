@@ -1,6 +1,6 @@
 Name:              telepathy-glib
 Version:           0.24.1
-Release:           12
+Release:           13
 Summary:           GObject-based library for the Telepathy D-Bus API
 
 License:           LGPLv2+
@@ -67,6 +67,9 @@ export PYTHON=python3
 %ldconfig_scriptlets
 
 %check
+%ifarch riscv64
+export TP_TESTS_NO_TIMEOUT=1
+%endif
 make check
 
 %files
@@ -91,6 +94,9 @@ make check
 %{_datadir}/gtk-doc/html/*
 
 %changelog
+* Mon Mar 28 2022 laokz <laokz@foxmail.com> - 0.24.1-13
+- disable riscv64 test timeout
+
 * Wed Oct 21 2020 jinzhimin <jinzhimin2@huawei.com> - 0.24.1-12
 - modify buildrequire to python3
 
